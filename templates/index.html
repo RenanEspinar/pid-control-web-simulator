@@ -2,26 +2,33 @@
 <html>
 <head>
     <title>PID Control Simulator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
 
-    <h1>PID Control Simulator (Biomedical Vacuum System)</h1>
+<body>
+<div class="container">
+
+    <h1>PID Control Simulator</h1>
+    <p class="subtitle">
+        Interactive biomedical vacuum pressure control simulation using Python and Flask.
+    </p>
 
     <form method="POST">
-        <label>Kp:</label>
-        <input type="number" step="0.01" name="Kp" value="{{ Kp }}"><br><br>
+        <label>Kp:</label><br>
+        <input type="number" step="0.01" name="Kp" value="{{ Kp }}"><br>
 
-        <label>Ki:</label>
-        <input type="number" step="0.01" name="Ki" value="{{ Ki }}"><br><br>
+        <label>Ki:</label><br>
+        <input type="number" step="0.01" name="Ki" value="{{ Ki }}"><br>
 
-        <label>Kd:</label>
-        <input type="number" step="0.01" name="Kd" value="{{ Kd }}"><br><br>
+        <label>Kd:</label><br>
+        <input type="number" step="0.01" name="Kd" value="{{ Kd }}"><br>
 
         <button type="submit">Simulate</button>
     </form>
 
-    <h2>Response:</h2>
+    <h2>Pressure Response</h2>
     <img src="data:image/png;base64,{{ plot_url }}"/>
 
+</div>
 </body>
 </html>
